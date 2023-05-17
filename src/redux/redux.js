@@ -4,9 +4,9 @@ export const todoSlice = createSlice({
     name: 'todo',
     initialState: {
         tasks:[
-            {id : 1, description: 'i have to catch up ', isDone: false},
-            {id : 2, description: `Eat, Don't sleep, Hack, 🔁`, isDone: false},
-            {id : 3, description: 'My Code Works 🤩🥳', isDone: true}
+            {id : 1, description: 'My Code Works 🤩🥳', isDone: true},
+            {id : 2, description: 'I have to catch up ', isDone: false},
+            {id : 3, description: `Eat, Don't sleep, Hack, 🔁`, isDone: false},
         ],
         filter: 'all'
     }
