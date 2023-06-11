@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Task from "./Task";
-import { filterAll, filterDone, filterUndone} from "../redux/redux";
+import { filterAll, filterDone, filterUndone } from "../redux/redux";
 
 const ListTask = () => {
   // Utilisation des hooks useSelector et useDispatch pour accéder à l'état et aux actions Redux
@@ -36,22 +36,22 @@ const ListTask = () => {
   const handleFilterAll = () => {
     dispatch(filterAll('all'));
   };
-  
+
   return (
     <>
-    <div className="filters">
-    <button className='btn btn-all' onClick={handleFilterAll}>All</button>
-    <button className='btn btn-done' onClick={handleFilterDone}>Done</button>
-    <button className='btn btn-notDone' onClick={handleFilterUndone}>Not Done</button>
+      <div className="filters">
+        <button className='btn btn-all' onClick={handleFilterAll}>All</button>
+        <button className='btn btn-done' onClick={handleFilterDone}>Done</button>
+        <button className='btn btn-notDone' onClick={handleFilterUndone}>Not Done</button>
       </div>
 
-    <table className='tasks'>
-      <tbody>
-      {filteredTasks.map((t) => (
-  <Task task={t} key={t.id} />
-))}
-      </tbody>
-    </table>
+      <table className='tasks'>
+        <tbody>
+          {filteredTasks.map((t) => (
+            <Task task={t} key={t.id} />
+          ))}
+        </tbody>
+      </table>
     </>
   );
 };

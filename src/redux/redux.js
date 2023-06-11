@@ -3,20 +3,20 @@ import { createSlice } from "@reduxjs/toolkit";
 export const todoSlice = createSlice({
     name: 'todo',
     initialState: {
-        tasks:[
-            {id : 1, description: 'My Code Works 🤩🥳', isDone: true},
-            {id : 2, description: 'I have to catch up ', isDone: false},
-            {id : 3, description: `Eat, Don't sleep, Hack, 🔁`, isDone: false},
+        tasks: [
+            { id: 1, description: 'My Code Works 🤩🥳', isDone: true },
+            { id: 2, description: 'I have to catch up ', isDone: false },
+            { id: 3, description: `Eat, Don't sleep, Hack, 🔁`, isDone: false },
         ],
         filter: 'all'
     }
-        ,
+    ,
     reducers: {
         addTask: (state, action) => {
             const newTask = {
-                id : Date.now(),
-                isDone : false,
-                description : action.payload,
+                id: Date.now(),
+                isDone: false,
+                description: action.payload,
             }
             state.tasks.push(newTask);
         },
@@ -28,7 +28,7 @@ export const todoSlice = createSlice({
             }
         },
         editTask: (state, action) => {
-            const {taskId, description: taskDescription} = action.payload;
+            const { taskId, description: taskDescription } = action.payload;
             const taskInput = state.tasks.find((t) => t.id === taskId);
             if (taskInput) {
                 taskInput.description = taskDescription;
@@ -53,6 +53,6 @@ export const todoSlice = createSlice({
     }
 })
 
-export const {addTask, toggleTask, editTask, removeTask, filterDone, filterUndone, filterAll} = todoSlice.actions
+export const { addTask, toggleTask, editTask, removeTask, filterDone, filterUndone, filterAll } = todoSlice.actions
 
 export const todoReducer = todoSlice.reducer;

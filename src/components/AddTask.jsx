@@ -4,33 +4,32 @@ import { addTask } from '../redux/redux';
 
 const AddTask = () => {
 
-    const dispatch = useDispatch();
-    const [type, setType] = useState('');
-    const [isError, setIsError] = useState(false);
+  const dispatch = useDispatch();
+  const [type, setType] = useState('');
+  const [isError, setIsError] = useState(false);
 
-    const handleChange = (e) => {
-        setType(e.target.value);
-        setIsError(false);
-    };
+  const handleChange = (e) => {
+    setType(e.target.value);
+    setIsError(false);
+  };
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      if (type.trim() === '') {
-        setIsError(true);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (type.trim() === '') {
+      setIsError(true);
 
-      } else {
-        dispatch(addTask(type));
-        setType('');
-      }
-    };
-  
+    } else {
+      dispatch(addTask(type));
+      setType('');
+    }
+  };
 
   return (
     <>
-        <h1>ToDo list</h1>
-      <div className='inputs'> 
+      <h1>ToDo list</h1>
+      <div className='inputs'>
         <form className='formAdd' >
-          <input type="text" value={type || isError ? type : ''} className='AddTask' onChange={handleChange} onSubmit={handleChange} placeholder="Enter task"/>
+          <input type="text" value={type || isError ? type : ''} className={`AddTask ${isError ? 'error' : ''}`} onChange={handleChange} placeholder={isError ? 'Please enter a task' : 'Enter task'} />
           <input type="submit" value="+" className='btn-submit' onClick={handleSubmit} />
         </form>
       </div>

@@ -6,8 +6,8 @@ function App() {
   return (
     <>
       <div className="container">
-      <AddTask/>
-      <ListTask/>
+        <AddTask />
+        <ListTask />
       </div>
     </>
   );

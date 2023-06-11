@@ -42,7 +42,7 @@ const Task = ({ task }) => {
         <input type="checkbox" checked={task.isDone} name="" id="" onChange={check} />
       </td>
       <td className='txt'>
-      {isEdit ? (
+        {isEdit ? (
           <>
             <input type="text" value={editedDescription} onChange={handleDescriptionChange} className={inputError ? 'error' : ''}
             />
@@ -52,16 +52,16 @@ const Task = ({ task }) => {
           <p>{task.description}</p>
         )}
       </td>
-        {isEdit ? (
-          <>
-            <td>
-              <FontAwesomeIcon icon={faCheck} className="fa-pen" onClick={handleEditTask} />
-              <FontAwesomeIcon icon={faTimes} className="fa-pen" onClick={() => setisEdit(false)} />
-            </td>
-          </>
-        ) : (
-          <td><FontAwesomeIcon icon={faPenToSquare} className="fa-pen" onClick={() => setisEdit(true)} /></td>
-        )}
+      {isEdit ? (
+        <>
+          <td>
+            <FontAwesomeIcon icon={faCheck} className="fa-pen" onClick={handleEditTask} />
+            <FontAwesomeIcon icon={faTimes} className="fa-pen" onClick={() => setisEdit(false)} />
+          </td>
+        </>
+      ) : (
+        <td><FontAwesomeIcon icon={faPenToSquare} className="fa-pen" onClick={() => setisEdit(true)} /></td>
+      )}
       <td>
         <FontAwesomeIcon icon={faTrash} className="fa-pen" onClick={handleDelete} />
       </td>
